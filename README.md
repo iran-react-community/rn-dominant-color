@@ -7,10 +7,11 @@ Thanks [react-native-dominant-color](https://github.com/hu9osaez/react-native-do
 ## Getting started
 `$ npm install react-native-dominant-color --save`
 
-### Mostly automatic installation
-Using autolinking
+### Mostly automatic installation   
 
-### Manual installation
+For react-native <= 60
+`$ react-native link rn-dominant-colors`
+
 
 #### Android
 
