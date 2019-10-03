@@ -53,11 +53,9 @@ class Example extends Component {
 
     componentWillMount() {
         let self = this;
-        getColorFromURL(imageUrl, (err, colors) => {
-            if(!err) {
-                self.setState({ color: colors.primary });
-            }
-        });
+        getColorFromURL(imageUrl).then(colors => {
+            this.setState({color: colors.primary})
+        })
     }
 
     render() {
