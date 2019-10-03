@@ -9,7 +9,7 @@ Thanks [react-native-dominant-color](https://github.com/hu9osaez/react-native-do
 
 ### Mostly automatic installation   
 
-For react-native <= 60
+For react-native <= 60:      
 `$ react-native link rn-dominant-colors`
 
 
