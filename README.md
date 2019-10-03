@@ -1,7 +1,7 @@
 
 # react-native-dominant-color
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-Extract the dominant colors of an image for android and ios.
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/matinzd/rn-dominant-color/compare)    
+Extract the dominant colors of an image for android and ios.   
 Thanks [react-native-dominant-color](https://github.com/hu9osaez/react-native-dominant-color) for android module
 
 ## Getting started
