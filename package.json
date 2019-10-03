@@ -1,0 +1,15 @@
+
+{
+  "name": "rn-dominant-color",
+  "version": "1.0.0",
+  "description": "Simple library to extract the dominant color from an image in React Native",
+  "main": "index.js",
+  "keywords": [
+    "react-native",
+    "dominant-color"
+  ],
+  "author": "Matin ZD",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  }
+}
