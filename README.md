@@ -5,12 +5,12 @@ Extract the dominant colors of an image for android and ios.
 Thanks [react-native-dominant-color](https://github.com/hu9osaez/react-native-dominant-color) for android module
 
 ## Getting started
-`$ npm install react-native-dominant-color --save`
+`$ yarn add rn-dominant-color`
 
 ### Mostly automatic installation   
 
 For react-native <= 60:      
-`$ react-native link rn-dominant-colors`
+`$ react-native link rn-dominant-color`
 
 
 #### Android
