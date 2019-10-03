@@ -19,23 +19,22 @@ export const getColorFromURL = (url) => {
 
   if (Platform.OS == 'android') {
     return new Promise((resolve, reject) => {
-      RNDominantColor.colorsFromUrl(url, (err, colors) => {
-        if (err) {
-          reject({
-            primary: '#00000000',
-            secondary: '#00000000',
-            background: '#00000000',
-            detail: '#00000000'
-          })
-        } else {
-          resolve({
-            primary: colors.dominantColor,
-            secondary: colors.averageColor,
-            background: colors.lightVibrantColor,
-            detail: colors.vibrantColor
-          })
-        }
-      });
+      RNDominantColor.colorsFromUrl(url).then(colors => {
+        resolve({
+          primary: colors.dominantColor,
+          secondary: colors.averageColor,
+          background: colors.lightVibrantColor,
+          detail: colors.vibrantColor
+        })
+
+      }).catch(err => {
+        reject({
+          primary: '#00000000',
+          secondary: '#00000000',
+          background: '#00000000',
+          detail: '#00000000'
+        })
+      })
     })
   }
 }
