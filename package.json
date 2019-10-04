@@ -10,5 +10,8 @@
   "author": "Matin ZD",
   "peerDependencies": {
     "react-native": "^0.41.2"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/matinzd"
   }
 }
