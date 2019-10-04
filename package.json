@@ -1,6 +1,6 @@
 {
   "name": "rn-dominant-color",
-  "version": "1.4.0",
+  "version": "1.4.1-semantic-release",
   "description": "Simple library to extract the dominant color from an image in React Native",
   "main": "index.js",
   "keywords": [
@@ -13,5 +13,15 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/matinzd"
+  },
+  "scripts": {
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matinzd/rn-dominant-color.git"
+  },
+  "devDependencies": {
+    "semantic-release": "^15.13.24"
   }
 }
