@@ -6,7 +6,8 @@
 //  Copyright © 1398 Facebook. All rights reserved.
 //
 
-#import "React/RCTBridgeModule.h"
+#import "RNDominantColorBridge.h"
+#import <React/RCTBridgeModule.h>
 
 @interface RCT_EXTERN_MODULE(RNDominantColor, NSObject)
 RCT_EXTERN_METHOD(getColorFromURL:(NSString)imageURL callback:(RCTResponseSenderBlock *)successCallback);

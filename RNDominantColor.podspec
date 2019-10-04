@@ -1,7 +1,8 @@
 require 'json'
 
+package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
+
 Pod::Spec.new do |s|
-  package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
   s.name          = "RNDominantColor"
   s.version       = package['version']
@@ -13,7 +14,7 @@ Pod::Spec.new do |s|
   s.framework     = 'UIKit'
   s.requires_arc  = true
   s.source        = { :git => "https://github.com/matinzd/rn-dominant-color.git", :tag => "master" }
-  s.source_files  = "ios/*.{h,m}"
+  s.source_files  = "ios/**/*.{h,m,swift}"
 
   s.dependency 'React'
 

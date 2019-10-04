@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA2B9D412345F27B001E33C4 /* RNDominantColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2B9D402345F27B001E33C4 /* RNDominantColor.swift */; };
-		AA2B9D492345F2C6001E33C4 /* RNDominantColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2B9D482345F2C6001E33C4 /* RNDominantColor.m */; };
+		AA2B9D492345F2C6001E33C4 /* RNDominantColorBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2B9D482345F2C6001E33C4 /* RNDominantColorBridge.m */; };
 		AA2B9D4B2345F34D001E33C4 /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2B9D4A2345F34D001E33C4 /* UIImageColors.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +27,8 @@
 /* Begin PBXFileReference section */
 		AA2B9D3D2345F27B001E33C4 /* libRNDominantColor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNDominantColor.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2B9D402345F27B001E33C4 /* RNDominantColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNDominantColor.swift; sourceTree = "<group>"; };
-		AA2B9D472345F2C6001E33C4 /* RNDominantColor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNDominantColor-Bridging-Header.h"; sourceTree = "<group>"; };
-		AA2B9D482345F2C6001E33C4 /* RNDominantColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNDominantColor.m; sourceTree = "<group>"; };
+		AA2B9D472345F2C6001E33C4 /* RNDominantColorBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNDominantColorBridge.h; sourceTree = "<group>"; };
+		AA2B9D482345F2C6001E33C4 /* RNDominantColorBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNDominantColorBridge.m; sourceTree = "<group>"; };
 		AA2B9D4A2345F34D001E33C4 /* UIImageColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,8 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				AA2B9D402345F27B001E33C4 /* RNDominantColor.swift */,
-				AA2B9D482345F2C6001E33C4 /* RNDominantColor.m */,
-				AA2B9D472345F2C6001E33C4 /* RNDominantColor-Bridging-Header.h */,
+				AA2B9D482345F2C6001E33C4 /* RNDominantColorBridge.m */,
+				AA2B9D472345F2C6001E33C4 /* RNDominantColorBridge.h */,
 				AA2B9D4A2345F34D001E33C4 /* UIImageColors.swift */,
 			);
 			path = RNDominantColor;
@@ -131,7 +131,7 @@
 			files = (
 				AA2B9D4B2345F34D001E33C4 /* UIImageColors.swift in Sources */,
 				AA2B9D412345F27B001E33C4 /* RNDominantColor.swift in Sources */,
-				AA2B9D492345F2C6001E33C4 /* RNDominantColor.m in Sources */,
+				AA2B9D492345F2C6001E33C4 /* RNDominantColorBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,15 +257,17 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "$(PODS_ROOT)/Headers/Public/React";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PODS_ROOT = "\"${SRCROOT}/../../../ios/Pods\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "RNDominantColor/RNDominantColor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "RNDominantColor/Support/RNDominantColor-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -277,15 +279,17 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "$(PODS_ROOT)/Headers/Public/React";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PODS_ROOT = "\"${SRCROOT}/../../../ios/Pods\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "RNDominantColor/RNDominantColor-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "RNDominantColor/Support/RNDominantColor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
