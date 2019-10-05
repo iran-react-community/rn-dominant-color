@@ -7,6 +7,7 @@
     "react-native",
     "dominant-color"
   ],
+  "homepage": "https://github.com/matinzd/rn-dominant-color",
   "author": "Matin ZD",
   "peerDependencies": {
     "react-native": "^0.41.2"
