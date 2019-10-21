@@ -83,7 +83,7 @@ public class RNDominantColorModule extends ReactContextBaseJavaModule {
 
             @Override
             public void onBitmapFailed(Drawable errorDrawable) {
-                promise.reject("", errorDrawable.toString());
+                promise.reject("", "On bitmap failed");
             }
 
             @Override
