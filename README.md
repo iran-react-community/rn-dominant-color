@@ -21,6 +21,10 @@ For react-native <= 60:
 
 1. `$ cd ios && pod install`
 
+You need to have swift enabled in your project. In order to have this installed follow these steps: #3   
+1. In project navigator right click on project name and create new swift file (any name
+2. After that press save and click on Create Bridging Header.
+3. Recompile your project
 
 ## Usage
 ```javascript
