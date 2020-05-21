@@ -2,6 +2,7 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
 
     dependencies {
@@ -28,11 +29,11 @@ android {
 
 repositories {
     mavenCentral()
+    google()
 }
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.android.support:palette-v7:28.3.1'
+    implementation 'androidx.palette:palette:+'
     implementation fileTree(dir: "libs", include: ["*.jar"])
 }
-  
