@@ -12,19 +12,22 @@ import UIKit
 @objc(RNDominantColor)
 class RNDominantColor : NSObject {
   
-  @objc
-  func getColorFromURL(_ imageURL: NSString,callback successCallback: RCTResponseSenderBlock ) {
-    let url = URL(string: imageURL as String)
-    let data = try? Data(contentsOf: url!)
-    guard let colors = UIImage(data: data!)?.getColors() else {
-      return successCallback(["#00000000", "#00000000", "#00000000", "#00000000", "#00000000"])
+    @objc static func requiresMainQueueSetup() -> Bool {
+        return false
     }
-    successCallback([
-      colors.primaryHex,
-      colors.secondaryHex,
-      colors.backgroundHex,
-      colors.detailHex
-    ])
     
-  }
+    @objc func getColorFromURL(_ imageURL: NSString,callback successCallback: RCTResponseSenderBlock ) {
+        let url = URL(string: imageURL as String)
+        let data = try? Data(contentsOf: url!)
+        guard let colors = UIImage(data: data!)?.getColors() else {
+          return successCallback(["#00000000", "#00000000", "#00000000", "#00000000", "#00000000"])
+        }
+        successCallback([
+          colors.primaryHex,
+          colors.secondaryHex,
+          colors.backgroundHex,
+          colors.detailHex
+        ])
+    }
+    
 }
