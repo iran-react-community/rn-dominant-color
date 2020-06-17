@@ -9,7 +9,8 @@ import android.os.Looper;
 import androidx.palette.graphics.Palette;
 import com.facebook.react.bridge.*;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+import java.io.IOException;
+import android.os.HandlerThread;
 
 public class RNDominantColorModule extends ReactContextBaseJavaModule {
 
@@ -71,34 +72,27 @@ public class RNDominantColorModule extends ReactContextBaseJavaModule {
 
     private void loadImageFromUrl(final String url, final Promise promise) {
         final Activity activity = getCurrentActivity();
-        Handler uiHandler = new Handler(Looper.getMainLooper());
-
-        final Target target = new Target() {
-            @Override
-            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                WritableMap colorMap = mapColors(bitmap);
-
-                promise.resolve(colorMap);
-            }
-
-            @Override
-            public void onBitmapFailed(Drawable errorDrawable) {
-                promise.reject("", "On bitmap failed");
-            }
-
-            @Override
-            public void onPrepareLoad(Drawable placeHolderDrawable) {
-            }
-        };
+        HandlerThread handlerThread = new HandlerThread("ABBAS");
+        handlerThread.start();
+        Handler uiHandler = new Handler(handlerThread.getLooper());
 
         uiHandler.post(new Runnable() {
             @Override
             public void run() {
-                Picasso
-                        .with(activity.getApplicationContext())
-                        .load(url)
-                        .resize(200, 200)
-                        .into(target);
+
+
+                Bitmap bitmap = null;
+                try {
+                    bitmap = Picasso.get().load(url).resize(200, 200).get();
+                } catch (IOException e) {
+                    promise.reject("", "On bitmap failed");
+                    e.printStackTrace();
+                }finally {
+                    if (bitmap != null) {
+                        WritableMap colorMap = mapColors(bitmap);
+                        promise.resolve(colorMap);
+                    }
+                }
             }
         });
     }
