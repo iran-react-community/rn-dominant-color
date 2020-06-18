@@ -6,10 +6,14 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
+
 import androidx.palette.graphics.Palette;
+
 import com.facebook.react.bridge.*;
 import com.squareup.picasso.Picasso;
+
 import java.io.IOException;
+
 import android.os.HandlerThread;
 
 public class RNDominantColorModule extends ReactContextBaseJavaModule {
@@ -28,7 +32,9 @@ public class RNDominantColorModule extends ReactContextBaseJavaModule {
     }
 
     private int calculateAvgColor(Bitmap bitmap, int pixelSpacing) {
-        int R = 0; int G = 0; int B = 0;
+        int R = 0;
+        int G = 0;
+        int B = 0;
         int height = bitmap.getHeight();
         int width = bitmap.getWidth();
         int n = 0;
@@ -71,34 +77,49 @@ public class RNDominantColorModule extends ReactContextBaseJavaModule {
     }
 
     private void loadImageFromUrl(final String url, final Promise promise) {
-        final Activity activity = getCurrentActivity();
-        HandlerThread handlerThread = new HandlerThread("ABBAS");
-        handlerThread.start();
-        Handler uiHandler = new Handler(handlerThread.getLooper());
-
-        uiHandler.post(new Runnable() {
-            @Override
-            public void run() {
 
 
-                Bitmap bitmap = null;
-                try {
-                    bitmap = Picasso.get().load(url).resize(200, 200).get();
-                } catch (IOException e) {
-                    promise.reject("", "On bitmap failed");
-                    e.printStackTrace();
-                }finally {
-                    if (bitmap != null) {
-                        WritableMap colorMap = mapColors(bitmap);
-                        promise.resolve(colorMap);
+        try {
+            final Activity activity = getCurrentActivity();
+            final HandlerThread handlerThread = new HandlerThread("ABBAS");
+            handlerThread.start();
+            Handler uiHandler = new Handler(handlerThread.getLooper());
+
+            uiHandler.post(new Runnable() {
+                @Override
+                public void run() {
+
+
+                    Bitmap bitmap = null;
+                    try {
+                        bitmap = Picasso.get().load(url).resize(200, 200).get();
+                    } catch (IOException e) {
+                        promise.reject("", "On bitmap failed");
+                        e.printStackTrace();
+                        handlerThread.interrupt();
+                        handlerThread.quit();
+                    } finally {
+                        if (bitmap != null) {
+                            WritableMap colorMap = mapColors(bitmap);
+                            promise.resolve(colorMap);
+                        }
+                        handlerThread.interrupt();
+                        handlerThread.quit();
                     }
                 }
-            }
-        });
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     @ReactMethod
     public void colorsFromUrl(String url, final Promise promise) {
+
         this.loadImageFromUrl(url, promise);
+
+
     }
 }
