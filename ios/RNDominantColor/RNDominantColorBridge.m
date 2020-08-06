@@ -11,4 +11,5 @@
 
 @interface RCT_EXTERN_MODULE(RNDominantColor, NSObject)
 RCT_EXTERN_METHOD(getColorFromURL:(NSString)imageURL callback:(RCTResponseSenderBlock *)successCallback);
+RCT_EXTERN_METHOD(getColorFromAssetURL:(NSString)imageURL callback:(RCTResponseSenderBlock *)successCallback);
 @end

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Photos
 
 @objc(RNDominantColor)
 class RNDominantColor : NSObject {
@@ -30,4 +31,27 @@ class RNDominantColor : NSObject {
         ])
     }
     
+
+    @objc func getColorFromAssetURL(_ imageURI: String,callback successCallback: @escaping RCTResponseSenderBlock ) {
+        let url = URL(string: imageURI as String)
+        let fetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+        if let phAsset = fetchResult.firstObject {
+            PHImageManager.default().requestImageData(for: phAsset, options: nil) {
+                (imageData, dataURI, orientation, info) -> Void in
+                if let imageDataExists = imageData {
+                    guard let colors = UIImage(data: imageDataExists)?.getColors() else {
+                      return successCallback(["#00000000", "#00000000", "#00000000", "#00000000", "#00000000"])
+                    }
+                    successCallback([
+                      colors.primaryHex,
+                      colors.secondaryHex,
+                      colors.backgroundHex,
+                      colors.detailHex
+                    ])
+                }
+            }
+        } else {
+          return successCallback(["#00000000", "#00000000", "#00000000", "#00000000", "#00000000"])
+        }
+    }
 }
