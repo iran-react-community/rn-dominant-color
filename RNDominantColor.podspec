@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   s.requires_arc  = true
   s.source        = { :git => "https://github.com/matinzd/rn-dominant-color.git", :tag => "master" }
   s.source_files  = "ios/**/*.{h,m,swift}"
+  s.swift_version = '4.0'
 
   s.dependency 'React'
 
