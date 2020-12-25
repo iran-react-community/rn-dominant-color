@@ -26,6 +26,19 @@ You need to have swift enabled in your project. In order to have this installed 
 2. After that press save and click on Create Bridging Header.
 3. Recompile your project
 
+You may run to this issue if you don't create swift file:
+```
+warning: Could not find or use auto-linked library 'swiftWebKit'
+Undefined symbols for architecture x86_64:
+  "__swift_FORCE_LOAD_$_swiftWebKit", referenced from:
+      __swift_FORCE_LOAD_$_swiftWebKit_$_RNDominantColor in libRNDominantColor.a(RNDominantColor.o)
+      __swift_FORCE_LOAD_$_swiftWebKit_$_RNDominantColor in libRNDominantColor.a(UIImageColors.o)
+      __swift_FORCE_LOAD_$_swiftWebKit_$_lottie_react_native in liblottie-react-native.a(ContainerView.o)
+      __swift_FORCE_LOAD_$_swiftWebKit_$_lottie_react_native in liblottie-react-native.a(AnimationViewManagerModule.o)
+     (maybe you meant: __swift_FORCE_LOAD_$_swiftWebKit_$_lottie_react_native, __swift_FORCE_LOAD_$_swiftWebKit_$_RNDominantColor )
+ld: symbol(s) not found for architecture x86_64
+```
+
 ## Usage
 ```javascript
 import React, { Component } from 'react';
