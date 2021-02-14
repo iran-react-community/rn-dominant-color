@@ -20,6 +20,6 @@
     "url": "https://github.com/matinzd/rn-dominant-color.git"
   },
   "devDependencies": {
-    "semantic-release": "^15.13.24"
+    "semantic-release": "^17.2.3"
   }
 }
