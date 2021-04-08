@@ -17,17 +17,20 @@ class RNDominantColor : NSObject {
     }
     
     @objc func getColorFromURL(_ imageURL: NSString,callback successCallback: RCTResponseSenderBlock ) {
-        let url = URL(string: imageURL as String)
-        let data = try? Data(contentsOf: url!)
-        guard let colors = UIImage(data: data!)?.getColors() else {
-          return successCallback(["#00000000", "#00000000", "#00000000", "#00000000", "#00000000"])
+        if let url = URL(string: imageURL as String) {
+            let data = try? Data(contentsOf: url)
+            if(data != nil) {
+                guard let colors = UIImage(data: data!)?.getColors() else {
+                  return successCallback(["#00000000", "#00000000", "#00000000", "#00000000", "#00000000"])
+                }
+                successCallback([
+                  colors.primaryHex,
+                  colors.secondaryHex,
+                  colors.backgroundHex,
+                  colors.detailHex
+                ])
+            }
         }
-        successCallback([
-          colors.primaryHex,
-          colors.secondaryHex,
-          colors.backgroundHex,
-          colors.detailHex
-        ])
     }
     
 }
