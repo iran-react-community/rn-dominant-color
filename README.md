@@ -1,3 +1,6 @@
+**THIS LIBRARY IS NOT MAINTAINED ANYMORE. CONSIDER USING https://github.com/osamaqarem/react-native-image-colors OR ANY OTHER ALTERNATIVES.**
+
+---
 
 # rn-dominant-color
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/matinzd/rn-dominant-color/compare)    [![npm version](https://badge.fury.io/js/rn-dominant-color.svg)](https://badge.fury.io/js/rn-dominant-color)    
